@@ -1,5 +1,6 @@
 package com.example.wrapper.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class WrapperClassServiceImpl implements WrapperClassService {
 	private WrapperClassDao wrapperClassDao;
 	
 	@Override
-	public List<ProductDto> displayallProductDtoData() {
+	public List<ProductDto> displayallProductDtoData() throws IOException {
 		// TODO Auto-generated method stub
 		return wrapperClassDao.displayallProductDtoData();
 	}
