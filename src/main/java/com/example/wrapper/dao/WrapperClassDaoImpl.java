@@ -34,7 +34,7 @@ public class WrapperClassDaoImpl extends JdbcDaoSupport implements WrapperClassD
 	    }
 
 	@Override
-	public List<ProductDto> displayallProductDtoData() {
+	public List<ProductDto> displayallProductDtoData() throws IOException {
 		// TODO Auto-generated method stub
 		List<Product> data=displayallProductData();
 		Gson gson=new Gson();
@@ -42,7 +42,6 @@ public class WrapperClassDaoImpl extends JdbcDaoSupport implements WrapperClassD
 		System.out.println(json);
 		ObjectMapper mapper=new ObjectMapper();
 		//TypeReference<List<?>> typeReference1=new TypeReference<List<?>>() {};
-		try {
 			TypeReference<List<ProductDto>> typeReference=new TypeReference<List<ProductDto>>() {};
 			List<ProductDto> value=mapper.readValue(json, typeReference);
 			System.out.println(value);
@@ -51,17 +50,6 @@ public class WrapperClassDaoImpl extends JdbcDaoSupport implements WrapperClassD
 				System.out.println(values);
 			}
 			return value;
-		} catch (JsonParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
 	}
 
 	@Override
