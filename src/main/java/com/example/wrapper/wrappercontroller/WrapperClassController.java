@@ -1,5 +1,6 @@
 package com.example.wrapper.wrappercontroller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,7 @@ public class WrapperClassController {
 	private WrapperClassService wrapperClassService;
 	
 	@GetMapping(value="/list_product")
-	public List<ProductDto> listProduct()
-	{
+	public List<ProductDto> listProduct() throws IOException {
 		return wrapperClassService.displayallProductDtoData();
 	}
 	
